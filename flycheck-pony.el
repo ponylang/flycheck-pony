@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; Pony syntax checking support for Flycheck.  Runs "ponyc" in the
+;; Pony syntax checking support for Flycheck.  Runs "ponyc -rexpr" in the
 ;; current working directory.
 
 ;; You may need to customize the location of your Pony compiler if
@@ -46,7 +46,7 @@
   "A Pony syntax checker using the ponyc compiler.
 
 See URL `http://www.ponylang.org'."
-  :command ("ponyc")
+  :command ("ponyc" "-rexpr")
   :standard-input nil
   :error-patterns
   ((error line-start (file-name) ":" line ":" column
