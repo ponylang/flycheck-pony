@@ -1,7 +1,7 @@
 ;;; flycheck-pony.el --- Pony support in Flycheck
 ;;
 ;; Authors: Sean T Allen <sean@monkeysnatchbanana.com>
-;; Version: 0.1.1
+;; Version: 0.2.1
 ;; URL: https://github.com/seantallen/flycheck-pony
 ;; Keywords: tools, convenience
 ;; Package-Requires: ((flycheck "0.25.1"))
@@ -45,7 +45,7 @@
   "Pony support for Flycheck."
   :prefix "flycheck-pony-"
   :group 'flycheck
-  :link '(url-link :tag "Github" "https://github.com/rmloveland/flycheck-pony"))
+  :link '(url-link :tag "Github" "https://github.com/seantallen/flycheck-pony"))
 
 (flycheck-define-checker pony
   "A Pony syntax checker using the ponyc compiler.
@@ -58,7 +58,18 @@ See URL `http://www.ponylang.org'."
 	  (zero-or-more (or digit ":")) (message) line-end))
   :modes ponylang-mode)
 
-(add-to-list 'flycheck-checkers 'pony)
+(flycheck-define-checker pony-stable
+  "A Pony syntax checker using pony-stable dependency management tool.
+
+See URL `https://github.com/jemc/pony-stable'."
+  :command ("stable" "env" "ponyc" "-rexpr")
+  :standard-input nil
+  :error-patterns
+  ((error line-start (file-name) ":" line ":" column
+    (zero-or-more (or digit ":")) (message) line-end))
+  :modes ponylang-mode)
+
+(add-to-list 'flycheck-checkers 'pony-stable 'pony)
 
 (provide 'flycheck-pony)
 

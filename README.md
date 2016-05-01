@@ -1,34 +1,56 @@
-flycheck-pony
-=============
+# Flycheck-pony
 
-A [Flycheck][] syntax checker for [Pony][].
+Flycheck-pony is an Emacs mode that supports on the fly syntax checking of
+[Pony](http://www.ponylang.org/) files. If you are an Emacs user and aren't
+familiar with [Flycheck](http://www.flycheck.org/en/latest/), we strongly
+suggest you check it out as it will change your development experience.
 
+## Installation
 
-Installation
-------------
+This package can be obtain from
+[MELPA](http://melpa.org/#/flycheck-pony or
+[MELPA Stable](http://stable.melpa.org/#/flycheck-pony). The `master`
+branch is continuously deployed to MELPA, and released versions are
+deployed to MELPA Stable.
 
-    (add-to-list 'load-path "/home/you/path/to/flycheck-pony")
-	(require 'flycheck-pony)
+<kbd>M-x package-install [RET] flycheck-pony [RET]</kbd>
 
+Then somewhere in your Emacs configuration, call:
 
-License
--------
+```elisp
+(use-package flycheck-pony)
+```
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or (at
-your option) any later version.
+## Configuration
 
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License for more details.
+At the moment, Emacs lockfiles cause errors with the Pony compiler, until this
+is fixed, be sure to add the following to your configuration:
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see http://www.gnu.org/licenses/.
+```elisp
+;; turn off lockfiles as it causes errors with ponyc at the moment
+(setq create-lockfiles nil)
+```
 
-See the file `COPYING` in this directory for details.
+### Pick your syntax checker
 
+Flycheck-pony supports 2 different syntax checkers. Most people will probably
+want to use the default `pony` syntax checker. It works by calling 
+`ponyc -rexpr` on your source.
 
-[Flycheck]: https://github.com/flycheck/flycheck
-[Pony]: http://www.ponylang.org/
+If you are using [pony-stable](https://github.com/jemc/pony-stable) to do
+dependency management, then the `pony` syntax checker won't work for you as it
+won't be able to find all your dependencies. For this eventuality, we provide a
+`pony-stable` syntax checker that works by running `stable env ponyc -rexpr`.
+Note that the `pony-stable` syntax checker won't update your dependencies for
+you as they change. For this, you will need to use the actual `pony-stable`
+command `stable fetch`. The `pony-stable` syntax checker is merely to allow you
+to do syntax checking for users of the `pony-stable` dependency tool.
+
+You can use the `flycheck-select-checker` function to switch between the two
+different Pony syntax checkers. By default, `pony-stable` will be used if the
+corresponding `stable` command is installed on your machine.
+
+## Attribution
+
+Big thanks to Richard M. Loveland who did the first version of flycheck-pony.
+We wouldn't be where we are now without your initial work Richard!
