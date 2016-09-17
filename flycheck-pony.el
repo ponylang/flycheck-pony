@@ -69,7 +69,8 @@ See URL `https://github.com/jemc/pony-stable'."
     (zero-or-more (or digit ":")) (message) line-end))
   :modes ponylang-mode)
 
-(add-to-list 'flycheck-checkers 'pony-stable 'pony)
+(add-to-list 'flycheck-checkers 'pony)
+(add-to-list 'flycheck-checkers 'pony-stable)
 
 (provide 'flycheck-pony)
 
