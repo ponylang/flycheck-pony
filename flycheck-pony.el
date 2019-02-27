@@ -1,7 +1,7 @@
 ;;; flycheck-pony.el --- Pony support in Flycheck
 ;;
 ;; Authors: Sean T Allen <sean@monkeysnatchbanana.com>
-;; Version: 0.2.1
+;; Version: 0.2.2
 ;; URL: https://github.com/seantallen/flycheck-pony
 ;; Keywords: tools, convenience
 ;; Package-Requires: ((flycheck "0.25.1"))
@@ -13,7 +13,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; Pony syntax checking support for Flycheck.  Runs "ponyc -rexpr" in the
+;; Pony syntax checking support for Flycheck.  Runs "ponyc -rfinal" in the
 ;; current working directory.
 ;;
 ;; You may need to customize the location of your Pony compiler if
@@ -51,18 +51,18 @@
   "A Pony syntax checker using the ponyc compiler.
 
 See URL `http://www.ponylang.org'."
-  :command ("ponyc" "-rexpr")
+  :command ("ponyc" "-rfinal")
   :standard-input nil
   :error-patterns
   ((error line-start (file-name) ":" line ":" column
-	  (zero-or-more (or digit ":")) (message) line-end))
+    (zero-or-more (or digit ":")) (message) line-end))
   :modes ponylang-mode)
 
 (flycheck-define-checker pony-stable
   "A Pony syntax checker using pony-stable dependency management tool.
 
 See URL `https://github.com/jemc/pony-stable'."
-  :command ("stable" "env" "ponyc" "-rexpr")
+  :command ("stable" "env" "ponyc" "-rfinal")
   :standard-input nil
   :error-patterns
   ((error line-start (file-name) ":" line ":" column
