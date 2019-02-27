@@ -3,6 +3,17 @@
 All notable changes to flycheck-pony are documented in this file.
 This project adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
+## [unreleased] - [unreleased]
+
+### Added
+
+
+### Changed
+
+
+### Fixed
+
+
 ## [0.2.2] - 2019-02-26
 
 ### Changed
