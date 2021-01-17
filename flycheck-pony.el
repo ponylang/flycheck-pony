@@ -58,11 +58,11 @@ See URL `http://www.ponylang.org'."
     (zero-or-more (or digit ":")) (message) line-end))
   :modes ponylang-mode)
 
-(flycheck-define-checker pony-stable
-  "A Pony syntax checker using pony-stable dependency management tool.
+(flycheck-define-checker corral
+  "A Pony syntax checker using corral dependency management tool.
 
-See URL `https://github.com/jemc/pony-stable'."
-  :command ("stable" "env" "ponyc" "-rfinal")
+See URL `https://github.com/ponylang/corral'."
+  :command ("corral" "run" "--" "ponyc" "-rfinal")
   :standard-input nil
   :error-patterns
   ((error line-start (file-name) ":" line ":" column
@@ -70,7 +70,7 @@ See URL `https://github.com/jemc/pony-stable'."
   :modes ponylang-mode)
 
 (add-to-list 'flycheck-checkers 'pony)
-(add-to-list 'flycheck-checkers 'pony-stable)
+(add-to-list 'flycheck-checkers 'corral)
 
 (provide 'flycheck-pony)
 
