@@ -8,12 +8,14 @@ suggest you check it out as it will change your development experience.
 ## Installation
 
 This package can be obtain from
-[MELPA](http://melpa.org/#/flycheck-pony or
+[MELPA](http://melpa.org/#/flycheck-pony) or
 [MELPA Stable](http://stable.melpa.org/#/flycheck-pony). The `master`
 branch is continuously deployed to MELPA, and released versions are
 deployed to MELPA Stable.
 
-<kbd>M-x package-install [RET] flycheck-pony [RET]</kbd>
+```emacs
+M-x package-install [RET] flycheck-pony [RET]
+```
 
 Then somewhere in your Emacs configuration, call:
 
@@ -34,7 +36,7 @@ is fixed, be sure to add the following to your configuration:
 ### Pick your syntax checker
 
 Flycheck-pony supports 2 different syntax checkers. Most people will probably
-want to use the default `pony` syntax checker. It works by calling 
+want to use the default `pony` syntax checker. It works by calling
 `ponyc -rexpr` on your source.
 
 If you are using [pony-stable](https://github.com/jemc/pony-stable) to do
