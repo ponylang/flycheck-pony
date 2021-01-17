@@ -39,18 +39,18 @@ Flycheck-pony supports 2 different syntax checkers. Most people will probably
 want to use the default `pony` syntax checker. It works by calling
 `ponyc -rexpr` on your source.
 
-If you are using [pony-stable](https://github.com/jemc/pony-stable) to do
+If you are using [corral](https://github.com/ponylang/corral) to do
 dependency management, then the `pony` syntax checker won't work for you as it
 won't be able to find all your dependencies. For this eventuality, we provide a
-`pony-stable` syntax checker that works by running `stable env ponyc -rexpr`.
-Note that the `pony-stable` syntax checker won't update your dependencies for
-you as they change. For this, you will need to use the actual `pony-stable`
-command `stable fetch`. The `pony-stable` syntax checker is merely to allow you
-to do syntax checking for users of the `pony-stable` dependency tool.
+`corral` syntax checker that works by running `corral run -- ponyc -rfinal`.
+Note that the `corral` syntax checker won't update your dependencies for
+you as they change. For this, you will need to use the actual `corral`
+command `corral fetch`. The `corral` syntax checker is merely to allow you
+to do syntax checking for users of the `corral` dependency tool.
 
 You can use the `flycheck-select-checker` function to switch between the two
-different Pony syntax checkers. By default, `pony-stable` will be used if the
-corresponding `stable` command is installed on your machine.
+different Pony syntax checkers. By default, `corral` will be used if the
+corresponding `corral` command is installed on your machine.
 
 ## Attribution
 
