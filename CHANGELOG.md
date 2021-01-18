@@ -9,9 +9,11 @@ All notable changes to the Pony compiler and standard library will be documented
 
 ### Added
 
+- Support for corral as a dependency manager
 
 ### Changed
 
+- Removed pony-stable depdendency manager support
 
 ## [0.2.2] - 2019-02-26
 
