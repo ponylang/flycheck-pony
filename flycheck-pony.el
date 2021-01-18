@@ -1,7 +1,7 @@
 ;;; flycheck-pony.el --- Pony support in Flycheck
 ;;
 ;; Authors: Sean T Allen <sean@seantallen.com>
-;; Version: 0.2.2
+;; Version: 0.3.0
 ;; URL: https://github.com/seantallen/flycheck-pony
 ;; Keywords: tools, convenience
 ;; Package-Requires: ((flycheck "0.25.1"))
