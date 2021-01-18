@@ -10,6 +10,7 @@
 ;;
 ;; Copyright (C) 2016 Richard M. Loveland <r@rmloveland.com>
 ;; Copyright (c) 2016 Sean T. Allen
+;; Copyright (c) 2021 The Pony Developers
 ;;
 ;;; Commentary:
 ;;
