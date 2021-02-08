@@ -9,7 +9,7 @@ suggest you check it out as it will change your development experience.
 
 This package can be obtain from
 [MELPA](http://melpa.org/#/flycheck-pony) or
-[MELPA Stable](http://stable.melpa.org/#/flycheck-pony). The `master`
+[MELPA Stable](http://stable.melpa.org/#/flycheck-pony). The `main`
 branch is continuously deployed to MELPA, and released versions are
 deployed to MELPA Stable.
 
